@@ -9,7 +9,19 @@ public class MethodTypeTest {
 
 	public static void main(String[] args) {
 		
+		double y1 = type1(1.5);
+		double y2 = type1(1.7);
 		
+		System.out.println("y1 : " + y1);
+		System.out.println("y2 : " + y2);
+		
+		type2(true);
+		type2(false);
+		
+		boolean result = type3();
+		System.out.println("result : " + result);
+		
+		type4();
 		
 		
 	}

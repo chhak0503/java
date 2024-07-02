@@ -19,7 +19,7 @@ public class MethodTest {
 		System.out.println("y2 : " + y2);
 		System.out.println("y3 : " + y3);
 		
-		
+		// 메서드 지역변수와 호출 스택 
 		int result1 = sum(1, 10);
 		System.out.println("result1 : " + result1);
 		
