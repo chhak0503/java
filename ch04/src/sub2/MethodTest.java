@@ -19,6 +19,13 @@ public class MethodTest {
 		System.out.println("y2 : " + y2);
 		System.out.println("y3 : " + y3);
 		
+		
+		int result1 = sum(1, 10);
+		System.out.println("result1 : " + result1);
+		
+		int result2 = sum(1, 100);
+		System.out.println("result2 : " + result2);
+		
 	}
 	
 	// 메서드 정의(define)
@@ -30,7 +37,8 @@ public class MethodTest {
 	// 메서드 정의
 	public static int sum(int start, int end) {
 		
-		int total = 0;
+		// 지역변수 : 메서드 안에서 선언된 변수
+		int total = 0; 
 		
 		for(int k=start ; k<=end ; k++) {
 			
