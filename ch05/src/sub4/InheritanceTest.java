@@ -28,13 +28,12 @@ public class InheritanceTest {
 		kb.show();
 		
 		// Person 클래스 상속 실습 
+		Doctor doctor = new Doctor("김유신", 33, "소아과");
+		Engineer engineer = new Engineer("김춘추", 30, "소프트웨어");
 		
-		
-		
-		
-		
-	}
-	
+		doctor.work();
+		engineer.work();
+	}	
 }
 
 
