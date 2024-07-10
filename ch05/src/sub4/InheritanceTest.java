@@ -23,7 +23,7 @@ public class InheritanceTest {
 		// StockAccount 실습(bank, acc, name, balance, stock, amount, price)
 		StockAccount kb = new StockAccount("KB증권", "101-11-1001", "홍길동", 10000, "삼성전자", 0, 50000);
 		kb.deposit(1000000);
-		kb.buy(20, 50000); // amount, price
+		kb.buy(20, 50000);  // amount, price
 		kb.sell(10, 50000); // amount, price
 		kb.show();
 		
