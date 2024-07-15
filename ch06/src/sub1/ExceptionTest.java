@@ -1,5 +1,8 @@
 package sub1;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 /*
  * 날짜 : 2024/07/15
  * 이름 : 김철학
@@ -76,12 +79,28 @@ public class ExceptionTest {
 		// 동적 객체 생성
 		try {
 			// 예외가 발생할 코드
-			Class object = Class.forName("sub1.Eagle"); // 문자열 정보를 가지고 객체생성
+			Class clazz = Class.forName("sub1.Eagle"); // 문자열 정보를 가지고 클래스 정보 로드
+			Constructor<?> constructor = clazz.getDeclaredConstructor(); // 생성자 선언
+			Eagle eagle = (Eagle) constructor.newInstance(); // 동적 객체 생성
 			
+			eagle.move();
+
 		} catch (ClassNotFoundException e) {
 			// 예외가 발생 했을 때
 			e.printStackTrace();
 			
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
 		} finally {
 			// 예외처리 발생여부와 상관없이 마지막에 항상 실행			
 			System.out.println("finally 실행...");
