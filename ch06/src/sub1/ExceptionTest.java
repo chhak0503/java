@@ -73,8 +73,19 @@ public class ExceptionTest {
 		// 일반예외(컴파일타임, 프로그램 실행 전 발생 예외)
 		//////////////////////////////////////////
 		
-		
-		
+		// 동적 객체 생성
+		try {
+			// 예외가 발생할 코드
+			Class object = Class.forName("sub1.Eagle"); // 문자열 정보를 가지고 객체생성
+			
+		} catch (ClassNotFoundException e) {
+			// 예외가 발생 했을 때
+			e.printStackTrace();
+			
+		} finally {
+			// 예외처리 발생여부와 상관없이 마지막에 항상 실행			
+			System.out.println("finally 실행...");
+		}
 		
 		
 		System.out.println("프로그램 종료...");
