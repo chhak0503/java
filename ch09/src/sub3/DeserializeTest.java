@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Properties;
 
 /*
  * 날짜 : 2024/07/18
@@ -16,7 +17,6 @@ public class DeserializeTest {
 	
 	public static void main(String[] args) {
 		
-				
 		String path = "C:\\Users\\lotte4\\Desktop\\apple.txt";
 		
 		try {

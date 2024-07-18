@@ -16,7 +16,6 @@ public class FileIOTest {
 		String source = "C:\\Users\\lotte4\\Desktop\\sample1.txt";
 		String target = "C:\\Users\\lotte4\\Desktop\\sample2.txt";
 		
-		
 		try {
 			// 입력스트림 생성 및 파일 연결
 			FileInputStream fis = new FileInputStream(source);
