@@ -43,7 +43,8 @@ public class SelectTest {
 				String hp    = rs.getString(4);
 				int    age   = rs.getInt(5);
 				
-				// 리스트 생성
+				
+				// vo 객체 생성 및 초기화 : VO 객체는 select 결과셋의 엔티티 객체
 				User1VO vo = new User1VO();
 				vo.setUid(uid);
 				vo.setName(name);
@@ -51,8 +52,8 @@ public class SelectTest {
 				vo.setHp(hp);
 				vo.setAge(age);
 				
+				// vo 리스트 추가
 				user1s.add(vo);
-							
 				
 			}
 			
