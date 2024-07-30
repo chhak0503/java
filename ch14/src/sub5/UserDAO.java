@@ -3,6 +3,9 @@ package sub5;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO {
@@ -60,16 +63,34 @@ public class UserDAO {
 	
 	public List<User1VO> selectUsers() {
 		
+		String sql = "select * from `user1`";
+		List<User1VO> users = new ArrayList<>();
+		
 		try {
 			Connection conn = DriverManager.getConnection(HOST, USER, PASS);
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
 			
+			while(rs.next()) {
+				User1VO vo = new User1VO();
+				vo.setUid(rs.getString(1));
+				vo.setName(rs.getString(2));
+				vo.setBirth(rs.getString(3));
+				vo.setHp(rs.getString(4));
+				vo.setAge(rs.getInt(5));
+				
+				users.add(vo);
+			}
 			
+			rs.close();
+			stmt.close();
+			conn.close();
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return null;
+		return users;
 	}
 	
 	public void updateUser(User1VO vo) {

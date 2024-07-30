@@ -1,5 +1,6 @@
 package sub5;
 
+import java.util.List;
 import java.util.Scanner;
 
 /*
@@ -52,8 +53,22 @@ public class CRUDTest {
 				
 			}else if(answer == 2) {
 				
+				UserDAO dao = UserDAO.getInstance();
+				List<User1VO> users = dao.selectUsers();
+				
+				for(User1VO user : users) {
+					System.out.println(user);
+				}
 				
 			}else if(answer == 3) {
+				
+				System.out.print("검색 아이디 : ");
+				String searchUid = sc.next();
+				
+				UserDAO dao = UserDAO.getInstance();
+				User1VO user = dao.selectUser(searchUid);
+				
+				System.out.println(user);
 				
 			}else if(answer == 4) {
 				

@@ -51,7 +51,7 @@ public class User1VO {
 	}
 	@Override
 	public String toString() {
-		return "User1VO [uid=" + uid + ", name=" + name + ", birth=" + birth + ", hp=" + hp + ", age=" + age + "]";
+		return "[uid=" + uid + ", name=" + name + ", birth=" + birth + ", hp=" + hp + ", age=" + age + "]";
 	}
 	
 	
