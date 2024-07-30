@@ -68,12 +68,9 @@ public class UserDAO {
 				user.setHp(rs.getString(4));
 				user.setAge(rs.getInt(5));
 			}
-			
 			rs.close();
 			psmt.close();
 			conn.close();
-			
-			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -113,17 +110,31 @@ public class UserDAO {
 		return users;
 	}
 	
-	public void updateUser(User1VO vo) {
+	public int updateUser(User1VO vo) {
+		
+		String sql = "update `user1` set `name`=?, `birth`=?, `hp`=?, `age`=? where `uid`=?";
+		int result = 0;
 		
 		try {
 			Connection conn = DriverManager.getConnection(HOST, USER, PASS);
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getName());
+			psmt.setString(2, vo.getBirth());
+			psmt.setString(3, vo.getHp());
+			psmt.setInt(4, vo.getAge());
+			psmt.setString(5, vo.getUid());
 			
+			// sql이 적용되는 row 카운터 반환
+			result = psmt.executeUpdate();
 			
+			psmt.close();
+			conn.close();
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+	
+		return result;
 	}
 	
 	public void deleteUser(String uid) {

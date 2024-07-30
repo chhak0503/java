@@ -72,8 +72,43 @@ public class CRUDTest {
 				
 			}else if(answer == 4) {
 				
+				User1VO user = new User1VO();
+				
+				System.out.print("수정 회원 아이디 입력 : ");
+				user.setUid(sc.next());
+				
+				System.out.print("수정 회원 이름 입력 : ");
+				user.setName(sc.next());
+				
+				System.out.print("수정 회원 생년월일 입력 : ");
+				user.setBirth(sc.next());
+				
+				System.out.print("수정 회원 휴대폰 입력 : ");
+				user.setHp(sc.next());
+				
+				System.out.print("수정 회원 나이 입력 : ");
+				user.setAge(sc.nextInt());
+				
+				int result = UserDAO.getInstance().updateUser(user);
+				
+				if(result > 0) {
+					System.out.println("수정 완료...");
+				}else {
+					System.out.println("수정 할 회원 아이디가 없습니다.");
+				}
+				
 			}else if(answer == 5) {
 				
+				System.out.print("삭제 회원 아이디 입력 : ");
+				String uid = sc.next();
+				
+				int result = UserDAO.getInstance().deleteUser(uid);
+				
+				if(result > 0) {
+					System.out.println("삭제 완료...");
+				}else {
+					System.out.println("삭제 할 회원 아이디가 없습니다.");
+				}
 			}
 			
 		}// end while
