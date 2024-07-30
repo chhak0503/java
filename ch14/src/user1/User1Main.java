@@ -6,7 +6,7 @@ import java.util.Scanner;
 /*
  * 날짜 : 2024/07/30
  * 이름 : 김철학
- * 내용 : Transaction 실습하기
+ * 내용 : User1 CRUD 실습하기
  */
 public class User1Main {
 	
@@ -19,7 +19,6 @@ public class User1Main {
 		Scanner sc = new Scanner(System.in);
 		
 		while(true) {
-			
 			System.out.println("종료:0, 입력:1, 조회:2, 검색:3, 수정:4, 삭제:5");
 			System.out.print("선택> ");
 			
