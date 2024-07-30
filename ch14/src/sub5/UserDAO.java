@@ -49,16 +49,36 @@ public class UserDAO {
 	
 	public User1VO selectUser(String uid) {
 		
+		String sql = "select * from `user1` where `uid`=?";
+		User1VO user = null;
+		
 		try {
 			Connection conn = DriverManager.getConnection(HOST, USER, PASS);
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			psmt.setString(1, uid);
 			
+			ResultSet rs = psmt.executeQuery();
+			
+			// 조회결과가 1 또는 0이기 때문에 while 대신 if문으로 next()
+			if(rs.next()) {
+				user = new User1VO();
+				user.setUid(rs.getString(1));
+				user.setName(rs.getString(2));
+				user.setBirth(rs.getString(3));
+				user.setHp(rs.getString(4));
+				user.setAge(rs.getInt(5));
+			}
+			
+			rs.close();
+			psmt.close();
+			conn.close();
 			
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return null;
+		return user;
 	}
 	
 	public List<User1VO> selectUsers() {
