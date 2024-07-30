@@ -1,4 +1,4 @@
-package sub5;
+package user1;
 
 import java.util.List;
 import java.util.Scanner;
@@ -8,12 +8,12 @@ import java.util.Scanner;
  * 이름 : 김철학
  * 내용 : Transaction 실습하기
  */
-public class CRUDTest {
+public class User1Main {
 	
 	public static void main(String[] args) {
 		
 		System.out.println("------------------------");
-		System.out.println("회원 관리 매니저 v1.0");
+		System.out.println("User1 회원 관리 매니저 v1.0");
 		System.out.println("------------------------");
 		
 		Scanner sc = new Scanner(System.in);
@@ -46,14 +46,14 @@ public class CRUDTest {
 				
 				User1VO vo = new User1VO(uid, name, birth, hp, age);
 				
-				UserDAO dao = UserDAO.getInstance();
+				User1DAO dao = User1DAO.getInstance();
 				dao.insertUser(vo);
 				
 				System.out.println("입력 완료...");
 				
 			}else if(answer == 2) {
 				
-				UserDAO dao = UserDAO.getInstance();
+				User1DAO dao = User1DAO.getInstance();
 				List<User1VO> users = dao.selectUsers();
 				
 				for(User1VO user : users) {
@@ -65,7 +65,7 @@ public class CRUDTest {
 				System.out.print("검색 아이디 : ");
 				String searchUid = sc.next();
 				
-				UserDAO dao = UserDAO.getInstance();
+				User1DAO dao = User1DAO.getInstance();
 				User1VO user = dao.selectUser(searchUid);
 				
 				System.out.println(user);
@@ -89,7 +89,7 @@ public class CRUDTest {
 				System.out.print("수정 회원 나이 입력 : ");
 				user.setAge(sc.nextInt());
 				
-				int result = UserDAO.getInstance().updateUser(user);
+				int result = User1DAO.getInstance().updateUser(user);
 				
 				if(result > 0) {
 					System.out.println("수정 완료...");
@@ -102,7 +102,7 @@ public class CRUDTest {
 				System.out.print("삭제 회원 아이디 입력 : ");
 				String uid = sc.next();
 				
-				int result = UserDAO.getInstance().deleteUser(uid);
+				int result = User1DAO.getInstance().deleteUser(uid);
 				
 				if(result > 0) {
 					System.out.println("삭제 완료...");
@@ -110,7 +110,6 @@ public class CRUDTest {
 					System.out.println("삭제 할 회원 아이디가 없습니다.");
 				}
 			}
-			
 		}// end while
 		
 		sc.close();

@@ -1,4 +1,4 @@
-package sub5;
+package user1;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,14 +8,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDAO {
+public class User1DAO {
 
 	// 싱글톤
-	private static UserDAO instance = new UserDAO();
-	public static UserDAO getInstance() {
+	private static User1DAO instance = new User1DAO();
+	public static User1DAO getInstance() {
 		return instance;
 	}
-	private UserDAO() {}
+	private User1DAO() {}
 	
 	
 	// DB 정보
@@ -137,16 +137,28 @@ public class UserDAO {
 		return result;
 	}
 	
-	public void deleteUser(String uid) {
+	public int deleteUser(String uid) {
+		
+		String sql = "delete from `user1` where `uid`=?";
+		int result = 0;
 		
 		try {
 			Connection conn = DriverManager.getConnection(HOST, USER, PASS);
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			psmt.setString(1, uid);
 			
+			// sql이 적용되는 row 카운터 반환
+			result = psmt.executeUpdate();
 			
+			psmt.close();
+			conn.close();
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		return result;
+		
 	}
 }
 
