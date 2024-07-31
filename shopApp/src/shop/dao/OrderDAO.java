@@ -18,9 +18,7 @@ public class OrderDAO extends DBHelper {
 	
 	// 기본 CRUD 메서드
 	public int insertOrder(OrderVO vo) {
-		
 		int count = 0;
-		
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL.INSERT_ORDER);

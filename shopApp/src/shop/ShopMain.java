@@ -4,8 +4,10 @@ import java.util.List;
 import java.util.Scanner;
 
 import shop.dao.CustomerDAO;
+import shop.dao.OrderDAO;
 import shop.dao.ProductDAO;
 import shop.vo.CustomerVO;
+import shop.vo.OrderVO;
 import shop.vo.ProductVO;
 
 /*
@@ -24,6 +26,8 @@ public class ShopMain {
 		
 		CustomerDAO customerDAO = CustomerDAO.getInstance();
 		ProductDAO  productDAO = ProductDAO.getInstance();
+		OrderDAO 	orderDAO = OrderDAO.getInstance();
+		
 		
 		// 로그인 사용자 객체
 		CustomerVO loginedCustomer = null;
@@ -101,15 +105,22 @@ public class ShopMain {
 					continue;
 				}
 				
-				System.out.println("주문 상품번호 입력 : ");
-				int prodNo = sc.nextInt();
+				OrderVO orderVO = new OrderVO(); 
+				orderVO.setOrderId(loginedCustomer.getCustId());
 				
-				System.out.println("주문 상품수량 입력 : ");
-				int prodCount = sc.nextInt();
+				System.out.print("주문 상품번호 입력 : ");
+				orderVO.setOrderProduct(sc.nextInt());
 				
+				System.out.print("주문 상품수량 입력 : ");
+				orderVO.setOrderCount(sc.nextInt());
 				
+				int result = orderDAO.insertOrder(orderVO);
 				
-				
+				if(result > 0) {
+					System.out.println("상품 주문이 완료 되었습니다.");
+				}else {
+					System.out.println("상품 주문이 실패 했습니다.");
+				}
 			}
 			
 			
