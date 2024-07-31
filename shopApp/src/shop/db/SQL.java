@@ -20,7 +20,16 @@ public class SQL {
 	
 	public static final String DELETE_CUSTOMER  = "delete from `customer` where `custId`=?";
 	
+	
 	// order
+	public static final String SELECT_ORDER = "select * from `order` where `orderNo`=?";
+	public static final String SELECT_ORDERS = "select * from `order`";
+	public final static String INSERT_ORDER = "INSERT INTO `Order` SET "
+											+ "`orderId`=?," 
+											+ "`orderProduct`=?," 
+											+ "`orderCount`=?," 
+											+ "`orderDate`=NOW()";
+										
 	
 	// product
 	public final static String SELECT_PRODUCTS = "SELECT * FROM `Product`";

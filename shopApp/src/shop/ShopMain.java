@@ -1,9 +1,12 @@
 package shop;
 
+import java.util.List;
 import java.util.Scanner;
 
 import shop.dao.CustomerDAO;
+import shop.dao.ProductDAO;
 import shop.vo.CustomerVO;
+import shop.vo.ProductVO;
 
 /*
  * 날짜 : 2024/07/31
@@ -20,6 +23,7 @@ public class ShopMain {
 		Scanner sc = new Scanner(System.in);
 		
 		CustomerDAO customerDAO = CustomerDAO.getInstance();
+		ProductDAO  productDAO = ProductDAO.getInstance();
 		
 		// 로그인 사용자 객체
 		CustomerVO loginedCustomer = null;
@@ -84,11 +88,27 @@ public class ShopMain {
 			}else if(answer == 3) {
 				// 상품목록
 				
+				List<ProductVO> products = productDAO.selectProducts();
 				
-				
+				System.out.println("----------- 상품목록 ------------");
+				products.stream().forEach(System.out::println);
+				System.out.println("-------------------------------");
 				
 			}else if(answer == 4) {
 				// 주문하기
+				if(loginedCustomer == null) {
+					System.out.println("로그인을 먼저 하십시요.");
+					continue;
+				}
+				
+				System.out.println("주문 상품번호 입력 : ");
+				int prodNo = sc.nextInt();
+				
+				System.out.println("주문 상품수량 입력 : ");
+				int prodCount = sc.nextInt();
+				
+				
+				
 				
 			}
 			
