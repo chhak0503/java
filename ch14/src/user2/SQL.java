@@ -3,7 +3,9 @@ package user2;
 public class SQL {
 
 	public static final String SELECT_USER2 = "select * from `user2` where `uid`=?";
+	
 	public static final String SELECT_USER2S = "select * from `user2`";
+	
 	public static final String INSERT_USER2 = "insert into `user2` set "
 											+ "`uid`=?,"
 											+ "`name`=?,"
