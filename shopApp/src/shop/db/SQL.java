@@ -23,5 +23,16 @@ public class SQL {
 	// order
 	
 	// product
-	
+	public final static String SELECT_PRODUCTS = "SELECT * FROM `Product`";
+	public final static String SELECT_PRODUCT  = "SELECT * FROM `Product` WHERE `prodNo`=?";
 }
+
+
+
+
+
+
+
+
+
+
