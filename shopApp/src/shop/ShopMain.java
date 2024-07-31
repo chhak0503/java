@@ -66,32 +66,52 @@ public class ShopMain {
 				}
 				
 			}else if(answer == 2) {
-				// 회원가입
-				CustomerVO customerVO = new CustomerVO();
 				
-				System.out.print("아이디 입력 : ");
-				customerVO.setCustId(sc.next());
-				
-				System.out.print("이름 입력 : ");
-				customerVO.setName(sc.next());
-				
-				System.out.print("휴대폰 입력 : ");
-				customerVO.setHp(sc.next());
-				
-				System.out.print("주소 입력 : ");
-				customerVO.setAddr(sc.next());
-				
-				int result = customerDAO.insertCustomer(customerVO);
-				
-				if(result > 0) {
-					System.out.println("회원가입을 축하합니다.");
+				if(loginedCustomer == null) {
+					// 회원가입
+					CustomerVO customerVO = new CustomerVO();
+					
+					System.out.print("아이디 입력 : ");
+					customerVO.setCustId(sc.next());
+					
+					System.out.print("이름 입력 : ");
+					customerVO.setName(sc.next());
+					
+					System.out.print("휴대폰 입력 : ");
+					customerVO.setHp(sc.next());
+					
+					System.out.print("주소 입력 : ");
+					customerVO.setAddr(sc.next());
+					
+					int result = customerDAO.insertCustomer(customerVO);
+					
+					if(result > 0) {
+						System.out.println("회원가입을 축하합니다.");
+					}else {
+						System.out.println("회원가입에 실패했습니다.");
+					}
 				}else {
-					System.out.println("회원가입에 실패했습니다.");
+					// 주문현황(주문번호, 상품번호, 상품명, 주문수량, 주문자이름, 주문일자)
+					String orderId = loginedCustomer.getCustId();
+					
+					List<OrderVO> orders = orderDAO.selectOrders(orderId);
+					
+					System.out.println("----------- 주문목록 ------------");
+					for(OrderVO order : orders) {
+						System.out.print(order.getOrderNo() + ", ");
+						System.out.print(order.getOrderProduct() + ", ");
+						System.out.print(order.getProdName() + ", ");
+						System.out.print(order.getOrderCount() + ", ");
+						System.out.print(order.getOrderer() + ", ");
+						System.out.println(order.getOrderDate());
+					}
+					System.out.println("-------------------------------");
+					
+					
 				}
 				
 			}else if(answer == 3) {
 				// 상품목록
-				
 				List<ProductVO> products = productDAO.selectProducts();
 				
 				System.out.println("----------- 상품목록 ------------");

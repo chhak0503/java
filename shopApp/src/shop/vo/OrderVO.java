@@ -7,6 +7,26 @@ public class OrderVO {
 	private int orderCount;
 	private String orderDate;
 	
+	// 추가필드
+	private String prodName;
+	private String orderer;
+	
+	
+	public String getProdName() {
+		return prodName;
+	}
+	public void setProdName(String prodName) {
+		this.prodName = prodName;
+	}
+	
+	public String getOrderer() {
+		return orderer;
+	}
+	public void setOrderer(String orderer) {
+		this.orderer = orderer;
+	}
+	
+	
 	public int getOrderNo() {
 		return orderNo;
 	}

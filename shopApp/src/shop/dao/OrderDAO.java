@@ -37,7 +37,7 @@ public class OrderDAO extends DBHelper {
 		return null;
 	}
 	
-	public List<OrderVO> selectOrders(String orderId) {
+	public List<OrderVO> selectOrders() {
 		
 		List<OrderVO> orders = new ArrayList<>();
 		
@@ -53,6 +53,35 @@ public class OrderDAO extends DBHelper {
 				vo.setOrderProduct(rs.getInt(3));
 				vo.setOrderCount(rs.getInt(4));
 				vo.setOrderDate(rs.getString(5));
+				orders.add(vo);
+			}
+			closeAll();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return orders;
+	}
+	
+	public List<OrderVO> selectOrders(String orderId) {
+		
+		List<OrderVO> orders = new ArrayList<>();
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_ORDERS_BY_ORDERID);
+			psmt.setString(1, orderId);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				OrderVO vo = new OrderVO();
+				vo.setOrderNo(rs.getInt(1));				
+				vo.setOrderProduct(rs.getInt(2)); 
+				vo.setProdName(rs.getString(3)); 
+				vo.setOrderCount(rs.getInt(4));
+				vo.setOrderer(rs.getString(5));
+				vo.setOrderDate(rs.getString(6).substring(2, 10));
 				orders.add(vo);
 			}
 			closeAll();

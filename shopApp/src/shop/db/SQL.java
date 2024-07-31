@@ -24,6 +24,18 @@ public class SQL {
 	// order
 	public static final String SELECT_ORDER = "select * from `order` where `orderNo`=?";
 	public static final String SELECT_ORDERS = "select * from `order`";
+	public static final String SELECT_ORDERS_BY_ORDERID = "select "
+														+ "`orderNo`,"
+														+ "`orderProduct`,"
+														+ "`prodName`,"
+														+ "`orderCount`,"
+														+ "`name`,"
+														+ "`orderDate` "
+														+ "from `order` as a "
+														+ "join `product` as b on a.orderProduct = b.prodNo "
+														+ "join `customer` as c on a.orderId = c.custId "
+														+ "where `orderId`=?";
+	
 	public final static String INSERT_ORDER = "INSERT INTO `Order` SET "
 											+ "`orderId`=?," 
 											+ "`orderProduct`=?," 
