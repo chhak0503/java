@@ -69,6 +69,50 @@ public class EncapsuleTest {
 		wr.setBank("유리은행");
 		wr.show();
 		
+		/*
+		도서관 관리 시스템의 일부로 Book 클래스를 정의하세요.
+		*/
+		Book book1 = new Book("삼국지", "나관중", "10001", 10);
+		book1.show();
+		
+		boolean isOk = book1.borrowBook();
+		
+		if(isOk) {
+			System.out.println(book1.getTitle() + "도서 대출 성공!");
+		}else {
+			System.out.println(book1.getTitle() + "도서 대출 실패!");
+		}
+		
+		book1.show();
+		
+		Book book2 = new Book("이것이 자바다", "신용권", "10002", 0);
+		book2.show();
+		
+		if(book2.borrowBook()) {
+			System.out.println(book2.getTitle() + "도서 대출 성공!");
+		}else {
+			System.out.println(book2.getTitle() + "도서 대출 실패!");
+		}
+		
+		// 문제2. 다음 요구사항을 충족하는 Movie 클래스를 정의하세요.
+		Movie movie1 = new Movie("글래디에이터", "리들리스콧", 8.0, 10);
+		
+		if(movie1.reserveSeat()) {
+			System.out.println("영화 좌석 예매 완료!");
+		}else {
+			System.out.println("영화 좌석 예매 실패!");
+		}
+		
+		movie1.showDetails();
+		
+		Movie movie2 = new Movie("타이타닉", "제임스카메론", 9.5, 0);
+		if(movie2.reserveSeat()) {
+			System.out.println("영화 좌석 예매 완료!");
+		}else {
+			System.out.println("영화 좌석 예매 실패!");
+		}
+		
+		movie2.showDetails();
 		
 	}
 }
