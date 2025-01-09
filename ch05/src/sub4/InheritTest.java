@@ -68,7 +68,7 @@ public class InheritTest {
 		kb.sell(5, 60000);
 		kb.show();
 		
-		//Person 상속 객체 생성
+		// Person 상속 객체 생성
 		Doctor doctor = new Doctor("김유신", 33, "소아과");
 		Engineer engineer = new Engineer("김춘추", 34, "소프트웨어");
 		
