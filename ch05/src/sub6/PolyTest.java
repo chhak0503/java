@@ -87,7 +87,8 @@ public class PolyTest {
 		
 	}// main() end
 	
-	public static void printSound(Pet pet) {
+	
+	public static void printSound(Pet pet) { // 다형성이 적용된 메서드 매개변수
 		pet.makeSound();		
 	}
 	
