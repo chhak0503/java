@@ -29,13 +29,10 @@ public class InterfaceTest {
 		
 		socket.switchOn();
 		socket.switchOff();
-		
-		
+				
 		// 인터페이스 예제3 - 다중 상속 효과
-		
-		
-		
-		
+		SmartTv stv = new SmartTv();
+		stv.process();
 		
 	}
 }
