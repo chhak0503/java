@@ -12,8 +12,8 @@ import java.io.IOException;
  * 이름 : 김철학
  * 내용 : Java 파일 입출력 버퍼 스트림 실습하기
  */
-public class BufferIOTest {
-
+public class FileTransferTest {
+	
 	public static void main(String[] args) {
 		
 		// 파일 경로 설정
@@ -25,35 +25,10 @@ public class BufferIOTest {
 			FileInputStream fis = new FileInputStream(source);   // 입력 스트림
 			FileOutputStream fos = new FileOutputStream(target); // 출력 스트림
 			
-			// 보조 스트림 생성 후 기본 스트림 연결
-			BufferedInputStream  bis = new BufferedInputStream(fis);
-			BufferedOutputStream bos = new BufferedOutputStream(fos);
-			
-			// 스트림 데이터 전송
-			while(true) {
-
-				// 입력스트림으로 파일 데이터 읽기
-				int data = bis.read();
-				
-				if(data == -1) {
-					// 읽을 파일 데이터가 없을때
-					break;					
-				}
-				
-				// 숫자를 문자로 변환
-				//char ch = (char) data;
-				//System.out.print(ch);
-				
-				// 출력스트림으로 파일 데이터 쓰기
-				bos.write(data);
-			}
-			
+			// 파일복사
+			fis.transferTo(fos);
+					
 			// 스트림 해제
-			bis.close();
-			
-			bos.flush(); // 출력버퍼는 해제 전에 비워줌
-			bos.close();			
-			
 			fis.close();
 			fos.close();
 			
@@ -66,4 +41,5 @@ public class BufferIOTest {
 		System.out.println("프로그램 종료...");
 		
 	}// main end
+
 }
