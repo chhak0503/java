@@ -12,8 +12,7 @@ public class Test01 {
 	public static void main(String[] args) {
 		
 		int answer = (int) (Math.random()*10)+1;		
-		int input = 0;
-		int count = 0;		
+		int input = 0, count = 0;		
 				
 		do {
 			count++;
