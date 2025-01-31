@@ -12,6 +12,7 @@ public class SQL {
 												+ "`orderProduct`=?,"
 												+ "`orderCount`=?,"
 												+ "`orderDate`=NOW()";
+	
 	public static final String SELECT_ORDERS = "SELECT "
 												+ "`orderNo`,"
 												+ "`orderId`,"
@@ -22,8 +23,7 @@ public class SQL {
 												+ "`orderDate` "
 												+ "FROM `Order` as a "
 												+ "JOIN `Product` as b ON a.orderProduct = b.prodNo";
-	
-	
+
 	// product
 	// alter table `product` modify `prodNo` int auto_increment;
 	public static final String INSERT_PRODUCT = "INSERT INTO `Product` SET "

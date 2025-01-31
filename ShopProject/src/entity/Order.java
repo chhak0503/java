@@ -80,9 +80,6 @@ public class Order {
 	}
 	
 	public void showOrder() {
-		System.out.println("---------------------------");
-		System.out.println("|주문번호|주문자|상품명|수량|가격|전체가격|주문일|");
-		System.out.println("---------------------------");
 		System.out.print(orderNo+",");
 		System.out.print(orderId+",");
 		System.out.print(prodName+",");

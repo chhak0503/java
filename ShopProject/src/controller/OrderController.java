@@ -39,6 +39,10 @@ public class OrderController {
 			case 2:
 				// 주문목록
 				List<Order> orders = service.showOrders();
+				System.out.println("---------------------------");
+				System.out.println("|주문번호|주문자|상품명|수량|가격|전체가격|주문일|");
+				System.out.println("---------------------------");
+				
 				for(Order order : orders) {
 					order.showOrder();
 				}
