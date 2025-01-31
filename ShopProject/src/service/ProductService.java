@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import dao.ProductDAO;
 import entity.Product;
 
@@ -15,6 +17,10 @@ public class ProductService {
 	
 	public void registerProduct(Product product) {
 		dao.insertProduct(product);
+	}
+	
+	public List<Product> listProduct() {
+		return dao.selectProducts();
 	}
 
 }

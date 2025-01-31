@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.List;
 import java.util.Scanner;
 
 import entity.Customer;
@@ -32,6 +33,12 @@ public class ProductController {
 				break;
 			case 2:
 				// 상품목록
+				List<Product> products = service.listProduct();
+				
+				for(Product product : products) {
+					System.out.println(product);
+				}
+				
 				break;
 			case 3:
 				// 상품검색

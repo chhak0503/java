@@ -10,10 +10,13 @@ public class SQL {
 	
 	// product
 	// alter table `product` modify `prodNo` int auto_increment;
+	
 	public static final String INSERT_PRODUCT = "INSERT INTO `Product` SET "
 												+ "`prodName`=?,"
 												+ "`stock`=?,"
 												+ "`price`=?,"
 												+ "`company`=?";
+	
+	public static final String SELECT_PRODUCTS = "SELECT * FROM `Product`";
 	
 }

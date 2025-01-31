@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import db.DBHelper;
@@ -35,7 +36,27 @@ public class ProductDAO extends DBHelper {
 	}
 
 	public List<Product> selectProducts() {
-		return null;
+		
+		List<Product> products = new ArrayList<Product>();
+		try {
+			conn = getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(SQL.SELECT_PRODUCTS);
+			
+			while(rs.next()) {
+				Product product = new Product();
+				product.setProdNo(rs.getInt(1));
+				product.setProdName(rs.getString(2));
+				product.setStock(rs.getInt(3));
+				product.setPrice(rs.getInt(4));
+				product.setCompany(rs.getString(5));
+				products.add(product);
+			}
+			closeAll();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return products;
 	}
 	
 	public void updateProduct(Product product) {
