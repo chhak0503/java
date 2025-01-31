@@ -18,13 +18,13 @@ public class ProductController {
 				// 메인 이동
 				return; // 메서드 종료
 			case 1:
-				// 주문하기
+				// 상품등록
 				break;
 			case 2:
-				// 주문목록
+				// 상품목록
 				break;
 			case 3:
-				// 나의주문
+				// 상품검색
 				break;
 			default:
 				break;
