@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.List;
 import java.util.Scanner;
 
 import entity.Customer;
@@ -26,7 +27,6 @@ public class OrderController {
 			case 1:
 				// 주문하기
 				if(loginedCustomer != null) {
-					
 					Order inputOrder = inputOrder(sc, loginedCustomer);
 					service.makeOrder(inputOrder);
 					
@@ -35,10 +35,14 @@ public class OrderController {
 				}else {
 					System.out.println("주문을 하시려면 먼저 로그인을 하십시요.");
 				}
-				
 				break;
 			case 2:
 				// 주문목록
+				List<Order> orders = service.showOrders();
+				for(Order order : orders) {
+					order.showOrder();
+				}
+			
 				break;
 			case 3:
 				// 나의주문

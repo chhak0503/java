@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import db.DBHelper;
@@ -33,7 +34,30 @@ public class OrderDAO extends DBHelper {
 	}
 	
 	public List<Order> selectOrders() {
-		return null;
+		
+		List<Order> orders = new ArrayList<Order>();
+		
+		try {
+			conn = getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(SQL.SELECT_ORDERS);
+			
+			while(rs.next()) {
+				Order order = new Order();
+				order.setOrderNo(rs.getInt(1));
+				order.setOrderId(rs.getString(2));
+				order.setProdName(rs.getString(3));
+				order.setOrderCount(rs.getInt(4));
+				order.setPrice(rs.getInt(5));
+				order.setTotal(rs.getInt(6));
+				order.setOrderDate(rs.getString(7));
+				orders.add(order);
+			}
+			closeAll();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return orders;
 	}
 	
 	public void updateOrder(Order order) {

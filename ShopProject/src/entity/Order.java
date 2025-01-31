@@ -8,6 +8,11 @@ public class Order {
 	private String orderDate;
 	
 	
+	// 추가필드
+	private String prodName;
+	private int price;
+	private int total;
+	
 	public Order() {}
 	public Order(int orderNo, String orderId, int orderProduct, int orderCount, String orderDate) {
 		this.orderNo = orderNo;
@@ -52,9 +57,47 @@ public class Order {
 	public void setOrderDate(String orderDate) {
 		this.orderDate = orderDate;
 	}
+	
+	public String getProdName() {
+		return prodName;
+	}
+	public void setProdName(String prodName) {
+		this.prodName = prodName;
+	}
+	
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	
+	public int getTotal() {
+		return total;
+	}
+	public void setTotal(int total) {
+		this.total = total;
+	}
+	
+	public void showOrder() {
+		System.out.println("---------------------------");
+		System.out.println("|주문번호|주문자|상품명|수량|가격|전체가격|주문일|");
+		System.out.println("---------------------------");
+		System.out.print(orderNo+",");
+		System.out.print(orderId+",");
+		System.out.print(prodName+",");
+		System.out.print(orderCount+",");
+		System.out.print(price+",");
+		System.out.print(total+",");
+		System.out.print(orderDate);
+		System.out.println();
+	}
+	
 	@Override
 	public String toString() {
 		return "Order [orderNo=" + orderNo + ", orderId=" + orderId + ", orderProduct=" + orderProduct + ", orderCount="
 				+ orderCount + ", orderDate=" + orderDate + "]";
 	}
 }
+
+

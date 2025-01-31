@@ -12,6 +12,16 @@ public class SQL {
 												+ "`orderProduct`=?,"
 												+ "`orderCount`=?,"
 												+ "`orderDate`=NOW()";
+	public static final String SELECT_ORDERS = "SELECT "
+												+ "`orderNo`,"
+												+ "`orderId`,"
+												+ "`prodName`,"
+												+ "`orderCount`,"
+												+ "`price`,"
+												+ "`orderCount` * `price` as `total`,"
+												+ "`orderDate` "
+												+ "FROM `Order` as a "
+												+ "JOIN `Product` as b ON a.orderProduct = b.prodNo";
 	
 	
 	// product

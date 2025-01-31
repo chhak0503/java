@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import dao.OrderDAO;
 import entity.Order;
 
@@ -15,5 +17,9 @@ public class OrderService {
 	
 	public void makeOrder(Order order) {
 		dao.insertOrder(order);
+	}
+	
+	public List<Order> showOrders() {
+		return dao.selectOrders();
 	}
 }
