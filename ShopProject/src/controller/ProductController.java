@@ -2,8 +2,14 @@ package controller;
 
 import java.util.Scanner;
 
+import entity.Customer;
+import entity.Product;
+import service.ProductService;
+
 public class ProductController {
 
+	private ProductService service = ProductService.getInstance();
+	
 	public void manage(Scanner sc) {
 		
 		while(true) {
@@ -19,6 +25,10 @@ public class ProductController {
 				return; // 메서드 종료
 			case 1:
 				// 상품등록
+				Product inputProduct = inputProduct(sc);
+				service.registerProduct(inputProduct);
+				
+				System.out.println("상품 등록 완료!");
 				break;
 			case 2:
 				// 상품목록
@@ -31,4 +41,23 @@ public class ProductController {
 			} // switch end
 		}// while end
 	}// manage end
+	
+	
+	public Product inputProduct(Scanner sc) {
+		sc.nextLine();
+		System.out.print("상품명 : ");
+		String prodName = sc.nextLine();
+		
+		System.out.print("재고량 : ");
+		int stock = sc.nextInt();
+	
+		System.out.print("가격 : ");
+		int price = sc.nextInt();
+		
+		sc.nextLine();
+		System.out.print("제조사 : ");
+		String company = sc.nextLine();
+		
+		return new Product(prodName, stock, price, company);
+	}
 }

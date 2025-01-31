@@ -9,5 +9,11 @@ public class SQL {
 	// order
 	
 	// product
+	// alter table `product` modify `prodNo` int auto_increment;
+	public static final String INSERT_PRODUCT = "INSERT INTO `Product` SET "
+												+ "`prodName`=?,"
+												+ "`stock`=?,"
+												+ "`price`=?,"
+												+ "`company`=?";
 	
 }

@@ -15,6 +15,12 @@ public class Product {
 		this.price = price;
 		this.company = company;
 	}
+	public Product(String prodName, int stock, int price, String company) {		
+		this.prodName = prodName;
+		this.stock = stock;
+		this.price = price;
+		this.company = company;
+	}
 
 	public int getProdNo() {
 		return prodNo;
