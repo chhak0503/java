@@ -37,7 +37,7 @@ public class AppMain {
 		boolean isRunning = true;
 		
 		while(isRunning) {
-			System.out.println("=========== Shop 미니 프로젝트 ===========");
+			System.out.println("========== Shop 미니 프로젝트 ==========");
 			System.out.println("0:종료, 1:회원관리, 2:상품관리, 3:주문관리");
 			System.out.print("선택 : ");
 			
@@ -62,7 +62,9 @@ public class AppMain {
 			default:
 				System.out.println("다시 선택하세요.");
 				break;
-			}
+				
+			} // switch end
+			
 		} // while end
 		
 		sc.close();

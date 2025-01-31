@@ -2,6 +2,8 @@ package controller;
 
 import java.util.Scanner;
 
+import entity.Customer;
+
 public class CustomerController {
 
 	
@@ -20,6 +22,10 @@ public class CustomerController {
 				return; // 메서드 종료
 			case 1:
 				// 회원가입
+				Customer inputCustomer = inputCustomer(sc);
+				System.out.println(inputCustomer);
+				
+				
 				break;
 			case 2:
 				// 회원목록
@@ -33,4 +39,46 @@ public class CustomerController {
 		}// while end
 	}// manage end
 	
+	public Customer inputCustomer(Scanner sc) {
+		
+		sc.nextLine();
+		
+		System.out.print("아이디 : ");
+		String custId = sc.nextLine();
+		
+		System.out.print("이름 : ");
+		String name = sc.nextLine();
+		
+		System.out.print("휴대폰 : ");
+		String hp = sc.nextLine();
+		
+		System.out.print("주소 : ");
+		String addr = sc.nextLine();
+		
+		return new Customer(custId, name, hp, addr);
+	}
+	
+	
+	
+	
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
