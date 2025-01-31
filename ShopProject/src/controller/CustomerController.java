@@ -3,15 +3,18 @@ package controller;
 import java.util.Scanner;
 
 import entity.Customer;
+import service.CustomerService;
 
 public class CustomerController {
 
+	// 서비스 객체
+	private CustomerService service = CustomerService.getInstance();
 	
 	public void manage(Scanner sc) {
 		
 		while(true) {
 			System.out.println("------------ 회원관리 ------------");
-			System.out.println("0:메인, 1:회원가입, 2:회원목록, 3:로그인");
+			System.out.println("0:메인, 1:회원가입, 2:로그인, 3:회원목록");
 			System.out.print("선택 : ");
 			
 			int choice = sc.nextInt();
@@ -23,15 +26,15 @@ public class CustomerController {
 			case 1:
 				// 회원가입
 				Customer inputCustomer = inputCustomer(sc);
-				System.out.println(inputCustomer);
+				service.registerCustomer(inputCustomer);
 				
-				
+				System.out.println("회원가입이 완료 되었습니다.");
 				break;
 			case 2:
-				// 회원목록
+				// 로그인
 				break;
 			case 3:
-				// 로그인
+				// 회원목록
 				break;
 			default:
 				break;

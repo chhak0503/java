@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 import db.DBHelper;
@@ -32,7 +33,28 @@ public class CustomerDAO extends DBHelper {
 	}
 	
 	public Customer selectCustomer(String custId) {
-		return null;
+		
+		Customer customer = null; // 선언
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_CUSTOMER);
+			psmt.setString(1, custId);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				customer = new Customer(); // 생성
+				customer.setCustId(rs.getString(1));
+				customer.setName(rs.getString(2));
+				customer.setHp(rs.getString(3));
+				customer.setAddr(rs.getString(4));
+				customer.setRdate(rs.getString(5));
+			}
+			closeAll();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return customer; // 리턴
 	}
 	
 	public List<Customer> selectCustomers() {
@@ -46,7 +68,6 @@ public class CustomerDAO extends DBHelper {
 	public void deleteCustomer(String custId) {
 		
 	}
-
 }
 
 
