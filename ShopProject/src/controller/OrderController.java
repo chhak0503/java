@@ -4,8 +4,11 @@ import java.util.Scanner;
 
 import entity.Customer;
 import entity.Order;
+import service.OrderService;
 
 public class OrderController {
+	
+	private OrderService service = OrderService.getInstance();
 	
 	public void manage(Scanner sc, Customer loginedCustomer) {
 		
@@ -25,7 +28,9 @@ public class OrderController {
 				if(loginedCustomer != null) {
 					
 					Order inputOrder = inputOrder(sc, loginedCustomer);
-					System.out.println(inputOrder);
+					service.makeOrder(inputOrder);
+					
+					System.out.println("주문이 완료되었습니다.");
 					
 				}else {
 					System.out.println("주문을 하시려면 먼저 로그인을 하십시요.");

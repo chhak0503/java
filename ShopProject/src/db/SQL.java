@@ -1,11 +1,18 @@
 package db;
 
 public class SQL {
+	
 	// customer
 	public static final String INSERT_CUSTOMER = "INSERT INTO `Customer` VALUES (?,?,?,?,NOW())";
 	public static final String SELECT_CUSTOMER = "SELECT * FROM `Customer` WHERE `custId`=?";
 	
 	// order
+	public static final String INSERT_ORDER = "INSERT INTO `Order` SET "
+												+ "`orderId`=?,"
+												+ "`orderProduct`=?,"
+												+ "`orderCount`=?,"
+												+ "`orderDate`=NOW()";
+	
 	
 	// product
 	// alter table `product` modify `prodNo` int auto_increment;
