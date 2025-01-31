@@ -11,7 +11,7 @@ public class CustomerController {
 	private CustomerService service = CustomerService.getInstance();
 	
 	
-	public void manage(Scanner sc) {
+	public Customer manage(Scanner sc) {
 		
 		// 로그인 Customer 객체
 		Customer loginedCustomer = null;
@@ -31,7 +31,7 @@ public class CustomerController {
 			switch(choice) {
 			case 0:
 				// 메인 이동
-				return; // 메서드 종료
+				return loginedCustomer; // 메서드 종료
 			case 1:
 				
 				if(loginedCustomer == null) {

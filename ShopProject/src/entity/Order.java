@@ -16,6 +16,11 @@ public class Order {
 		this.orderCount = orderCount;
 		this.orderDate = orderDate;
 	}
+	public Order(String orderId, int orderProduct, int orderCount) {
+		this.orderId = orderId;
+		this.orderProduct = orderProduct;
+		this.orderCount = orderCount;
+	}
 
 	public int getOrderNo() {
 		return orderNo;

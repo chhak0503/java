@@ -38,7 +38,6 @@ public class ProductController {
 				for(Product product : products) {
 					System.out.println(product);
 				}
-				
 				break;
 			case 3:
 				// 상품검색

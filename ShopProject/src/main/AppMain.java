@@ -5,6 +5,7 @@ import java.util.Scanner;
 import controller.CustomerController;
 import controller.OrderController;
 import controller.ProductController;
+import entity.Customer;
 
 /*
  * 날짜 : 2025/01/31
@@ -35,6 +36,7 @@ public class AppMain {
 		Scanner sc = new Scanner(System.in);
 		
 		boolean isRunning = true;
+		Customer loginedCustomer = null;
 		
 		while(isRunning) {
 			System.out.println("========== Shop 미니 프로젝트 ==========");
@@ -49,7 +51,7 @@ public class AppMain {
 				break;
 			case 1:
 				// 회원관리
-				customerController.manage(sc);
+				loginedCustomer = customerController.manage(sc);
 				break;
 			case 2:
 				// 상품관리
@@ -57,7 +59,7 @@ public class AppMain {
 				break;
 			case 3:
 				// 주문관리
-				orderController.manage(sc);
+				orderController.manage(sc, loginedCustomer);
 				break;
 			default:
 				System.out.println("다시 선택하세요.");
